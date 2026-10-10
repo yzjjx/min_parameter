@@ -1,0 +1,18 @@
+% 对RNEA_SYM得到的结果进行数值验证，代入实际数值，验证两个tau的结果是否正确
+% 同时支持代入sym符号，简化运算
+I_c1=[0,0,0;
+      0,0,0;
+      0,0,I_zz1];
+I_c2=[0,0,0;
+      0,0,0;
+      0,0,I_zz2];
+c_1 = []
+
+mat_Ic = sym(zeros(3, 3, N));
+for i = 1:N
+    mat_Ic(:,:,i) = [
+        I_xx(i), I_xy(i), I_xz(i);
+        I_xy(i), I_yy(i), I_yz(i);
+        I_xz(i), I_yz(i), I_zz(i)
+    ];
+end
